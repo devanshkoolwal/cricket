@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 mt-5">
+                <h1><%=data['team-1'] %> <span style="color: red;">VS</span> <%=data['team-2'] %></h1>
+            </div>
+            <div class="col-12 mt-4">
+
+                <% if(data.matchStarted==true){%>
+                    <h4>Match status: <span style="color: red;">Ongoing</span> </h4>
+                <% } else{ %>
+                    <h4>Match status: <span style="color: red;">Not yet started</span></h4>
+                <% } %>
+            </div>
+            <div class="col-12 mt-4">
+                <% if(data.matchStarted==true){%>
+                    <h4>Score : <%= data.score %></h4>
+
+                <% } %>
+                
+            </div>
+        </div>
+    </div>
+    
+<%- include('partials/footer') %>
