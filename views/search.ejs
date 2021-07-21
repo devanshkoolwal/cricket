@@ -1,0 +1,24 @@
+<%- include('partials/header')%>
+
+<div class="container">
+    <div class="row mt-3 text-center justify-content-md-center">
+        <% data.forEach(function(player){ %>
+        <div class="col-md-3 m-2">
+
+            
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= player.fullName %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><%= player.name %></h6>
+                    <a href="/player/<%=player.pid%>" class="stretched-link"></a>
+                    </div>
+                </div>
+            
+
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+
+<%- include('partials/footer')%>
