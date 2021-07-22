@@ -1,3 +1,4 @@
+require('dotenv').config()
 var express=require("express");
 var request=require("request");
 var fetch =require('node-fetch');
@@ -12,7 +13,7 @@ app.get("/",function(req,res){
 
     
     (async () => {
-        allMatches = await fetch('https://cricapi.com/api/matches/vRXDuVep99VLZGLlfsBBBW3aBOk1').then(response => response.json());
+        allMatches = await fetch('https://cricapi.com/api/matches/'+process.env.APIKEY).then(response => response.json());
         try{
             
             
@@ -28,7 +29,7 @@ app.get("/",function(req,res){
 app.get("/match/:id", function(req,res){
     var unique_id=req.params.id;
     (async () => {
-        const match = await fetch('https://cricapi.com/api/cricketScore?apikey=vRXDuVep99VLZGLlfsBBBW3aBOk1&unique_id='+unique_id).then(response => response.json());
+        const match = await fetch('https://cricapi.com/api/cricketScore?apikey='+process.env.APIKEY+'&unique_id='+unique_id).then(response => response.json());
         try{
             
             res.render("match",{data:match});
@@ -44,7 +45,7 @@ app.post("/search", function(req,res){
     
 
     (async () => {
-        const players = await fetch('https://cricapi.com/api/playerFinder?apikey=vRXDuVep99VLZGLlfsBBBW3aBOk1&name='+query).then(response => response.json());
+        const players = await fetch('https://cricapi.com/api/playerFinder?apikey='+process.env.APIKEY+'&name='+query).then(response => response.json());
         try{
             // console.log(players);
             res.render("search",{data:players.data});
@@ -62,7 +63,7 @@ app.get("/player/search", function(req,res){
 app.get("/player/:id", function(req,res){
     var pid=req.params.id;
     (async () => {
-        const player = await fetch('https://cricapi.com/api/playerStats?apikey=vRXDuVep99VLZGLlfsBBBW3aBOk1&pid='+pid).then(response => response.json());
+        const player = await fetch('https://cricapi.com/api/playerStats?apikey='+process.env.APIKEY+'&pid='+pid).then(response => response.json());
         try{
             
             res.render("player",{data:player});
@@ -146,4 +147,4 @@ return set
 }
 
 
-app.listen("1800");
+app.listen(process.env.PORT);
