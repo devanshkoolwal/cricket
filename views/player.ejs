@@ -1,34 +1,108 @@
 <%- include('partials/header')%>
 
-    <div class ="container">
-        <div class="card text-center" style="width: 100%">
-            <img src="<%= data.imageURL %>" style="width: 10rem;" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-            <div class="card-body">
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-          </div>
-    </div>
+    
 
 
 
-
+  <div class="container">
     <div class="row mt-2">
         <div class="col-12 text-center">
             <div class="text-center">
-                <img src="<%= data.imageURL %>" class="rounded" alt="...">
+                <img src="<%= data.imageURL %>" class="rounded"  alt="...">
               </div>
               <br>
-            <h1><%= data.fullName %></h1>
+            <h1><%= data?.fullName %></h1>
+            <p><%= data?.country %></p>
         </div>
+
+
+            <div class="col-12 mt-5" >
+              <h2>Personal Details</h2>
+              <table class="table table-striped">
+                <tbody>
+                  <tr>
+                    <th>Born</th>
+                    <td><%= data?.born %></td>
+                  </tr>
+                  <tr>
+                    <th>Role</th>
+                    <td><%= data?.playingRole %></td>
+                  </tr>
+                  <tr>
+                    <th>Batting Style</th>
+                    <td><%= data?.battingStyle %></td>
+                  </tr>
+                  <tr>
+                    <th>Bowling Style</th>
+                    <td><%= data?.bowlingStyle %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+
+
+            <div class="col-12 mt-5" >
+              <h2>Teams</h2>
+              <table class="table table-striped">
+                <tbody>
+                  <tr>
+                    
+                    <td><%= data?.majorTeams %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-12 mt-5" >
+              <h2>Profile</h2>
+              <table class="table table-striped">
+                <tbody>
+                  <tr>
+                    
+                    <td><%= data?.profile %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+           
+
+            <div class="col-12 mt-5" >
+              <h2>Batting stats</h2>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Batting</th>
+                    <th scope="col">ODIs</th>
+                    <th scope="col">T20</th>
+                    <th scope="col">Tests</th>
+                  </tr>
+                </thead>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Matches</th>
+                    <td><%= data.data?.batting?.ODIs?.Mat %></td>
+                    <td><%= data.data?.batting?.T20Is?.Mat %></td>
+                    <td><%= data.data?.batting?.tests?.Mat %></td>
+                  </tr>
+                  <tr>
+                    <th>Innings</th>
+                    <td><%= data.data?.batting?.ODIs?.Inns %></td>
+                    <td><%= data.data?.batting?.T20Is?.Inns %></td>
+                    <td><%= data.data?.batting?.tests?.Inns %></td>
+                  </tr>
+                  <tr>
+                    <th>Runs</th>
+                    <td><%= data.data?.batting?.ODIs?.Runs %></td>
+                    <td><%= data.data?.batting?.T20Is?.Runs %></td>
+                    <td><%= data.data?.batting?.tests?.Runs %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
     </div>
+  </div>
 <%- include('partials/footer')%>

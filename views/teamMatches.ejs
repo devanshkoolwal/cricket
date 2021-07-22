@@ -1,0 +1,28 @@
+<%- include('partials/header')%>
+
+<div class="container">
+    <div class="row mt-3 text-center justify-content-md-center">
+        <% for(let i of data){ %>
+            <div class="col-md-3 mb-2">
+                <div class="card" >
+                        
+                <div class="card-body">
+                        <h5 class="card-title"><%= i['team-1'] %> <br><span style="color: red;">VS</span> <br><%= i['team-2'] %></h5>
+                        <p class="card-text"
+                        <% if(i.matchStarted==true){%>
+                                <h4>Match status: <span style="color: red;">Ongoing</span> </h4>
+                            <% } else{ %>
+                                <h4>Match status: <span style="color: red;">Not yet started</span></h4>
+                            <% } %>
+
+                            <%= new Date(i.dateTimeGMT).toLocaleString() %>
+                        </p>
+                        <a href="/match/<%= i.unique_id%>" class="btn btn-primary">More details</a>
+                </div>
+                </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer')%>

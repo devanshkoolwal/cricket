@@ -1,0 +1,14 @@
+<%- include('partials/header')%>
+<div class="container mt-5">
+    <form action="/search" method="POST">
+        <div class="mb-3">
+          <label for="search" class="form-label">Enter Player name</label>
+          <input type="text" name="search" class="form-control" id="search">
+          
+        </div>
+        
+        
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+</div>
+<%- include('partials/footer')%>

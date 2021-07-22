@@ -1,0 +1,26 @@
+<%- include('partials/header')%>
+
+<div class="container">
+    <div class="row mt-3 text-center justify-content-md-center">
+        <% for(let i of data.keys()){ %>
+        <div class="col-md-3 m-2">
+
+            
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= i %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"></h6>
+                    <form action="/team" method="POST">
+                        <input type="text" name="teamName" class="d-none" value="<%= i %>">
+                        <button type="submit">Details</button>
+                    </form>
+                    </div>
+                </div>
+            
+
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer')%>
